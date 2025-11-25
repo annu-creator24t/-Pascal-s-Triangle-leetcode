@@ -1,0 +1,54 @@
+# Ignore ALL node_modules
+**/node_modules/
+
+# Ignore build folders
+frontend/build/
+dashboard/build/
+backend/dist/
+
+# Ignore environment files
+.envimport java.util.*;
+
+class Solution {
+
+    public List<List<Integer>> generate(int n) {
+
+        int[][] ans = new int[n][n];
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            List<Integer> row = new ArrayList<>();
+
+            for (int j = 0; j <= i; j++) {
+
+                if (j == 0 || i == j) {
+                    ans[i][j] = 1;
+                } else {
+                    ans[i][j] = ans[i - 1][j - 1] + ans[i - 1][j];
+                }
+
+                row.add(ans[i][j]);     
+
+                System.out.print(ans[i][j] + " ");
+            }
+
+            System.out.println();
+            result.add(row);        
+        }
+
+        return result;   
+    }
+}
+
+.env.local
+.env.development.local
+.env.production.local
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
